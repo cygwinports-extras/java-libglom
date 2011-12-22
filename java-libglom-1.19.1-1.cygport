@@ -1,0 +1,17 @@
+#JAVA_CLASSPATH="junit4.jar"
+ORIG_PN=${PN}
+inherit gnome2 java
+
+PATCH_URI="1.19.1-ldflags.patch
+           1.19.1-missing-symbols.patch"
+
+DEPEND="java-junit4
+	pkgconfig(glom-1.20)
+	pkgconfig(libgdamm-5.0)"
+
+CYGCONF_ARGS="
+	JAVA=${JAVA##*/} JAVAC=${JAVAC##*/} JAR=${JAR##*/}
+	ac_cv_prog_uudecode_base64=yes
+	ac_cv_prog_java_works=yes
+	ac_cv_prog_javac_works=yes
+"

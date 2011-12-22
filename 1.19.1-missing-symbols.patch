@@ -1,0 +1,43 @@
+There is no GlomBakery::Document_XML::add_indenting_white_space() function
+
+--- origsrc/java-libglom-1.19.1/src/glom_wrap.cc	2011-11-30 08:20:54.000000000 -0600
++++ src/java-libglom-1.19.1/src/glom_wrap.cc	2011-12-21 23:13:33.097746000 -0600
+@@ -10212,6 +10212,7 @@ SWIGEXPORT jstring JNICALL Java_org_glom
+ }
+ 
+ 
++#if 0
+ SWIGEXPORT void JNICALL Java_org_glom_libglom_GlomJNI_BakeryDocumentXML_1add_1indenting_1white_1space(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+   GlomBakery::Document_XML *arg1 = (GlomBakery::Document_XML *) 0 ;
+   
+@@ -10221,6 +10222,7 @@ SWIGEXPORT void JNICALL Java_org_glom_li
+   arg1 = *(GlomBakery::Document_XML **)&jarg1; 
+   (arg1)->add_indenting_white_space();
+ }
++#endif
+ 
+ 
+ SWIGEXPORT jstring JNICALL Java_org_glom_libglom_GlomJNI_BakeryDocumentXML_1get_1xml(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+--- origsrc/java-libglom-1.19.1/src/main/java/org/glom/libglom/BakeryDocumentXML.java	2011-11-30 08:20:54.000000000 -0600
++++ src/java-libglom-1.19.1/src/main/java/org/glom/libglom/BakeryDocumentXML.java	2011-12-21 23:14:38.969839800 -0600
+@@ -67,10 +67,6 @@ public class BakeryDocumentXML extends B
+     return GlomJNI.BakeryDocumentXML_get_dtd_root_node_name(swigCPtr, this);
+   }
+ 
+-  public void add_indenting_white_space() {
+-    GlomJNI.BakeryDocumentXML_add_indenting_white_space(swigCPtr, this);
+-  }
+-
+   public String get_xml() {
+     return GlomJNI.BakeryDocumentXML_get_xml(swigCPtr, this);
+   }
+--- origsrc/java-libglom-1.19.1/src/main/java/org/glom/libglom/GlomJNI.java	2011-11-30 08:20:54.000000000 -0600
++++ src/java-libglom-1.19.1/src/main/java/org/glom/libglom/GlomJNI.java	2011-12-21 23:15:01.663873600 -0600
+@@ -547,7 +547,6 @@ public class GlomJNI {
+   public synchronized final static native void BakeryDocumentXML_set_dtd_root_node_name__SWIG_0(long jarg1, BakeryDocumentXML jarg1_, String jarg2, String jarg3);
+   public synchronized final static native void BakeryDocumentXML_set_dtd_root_node_name__SWIG_1(long jarg1, BakeryDocumentXML jarg1_, String jarg2);
+   public synchronized final static native String BakeryDocumentXML_get_dtd_root_node_name(long jarg1, BakeryDocumentXML jarg1_);
+-  public synchronized final static native void BakeryDocumentXML_add_indenting_white_space(long jarg1, BakeryDocumentXML jarg1_);
+   public synchronized final static native String BakeryDocumentXML_get_xml(long jarg1, BakeryDocumentXML jarg1_);
+   public synchronized final static native long new_FoundSet__SWIG_0();
+   public synchronized final static native long new_FoundSet__SWIG_1(long jarg1, FoundSet jarg1_);

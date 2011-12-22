@@ -1,0 +1,4 @@
+category: Java
+requires: glom libgcc1 libgdamm5.0_13 libglibmm2.4_1 libstdc++6
+sdesc: "Java libglom bindings"
+ldesc: "Java libglom bindings"

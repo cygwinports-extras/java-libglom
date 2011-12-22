@@ -1,0 +1,12 @@
+--- origsrc/java-libglom-1.19.1/Makefile.am	2011-11-30 08:17:43.000000000 -0600
++++ src/java-libglom-1.19.1/Makefile.am	2011-12-21 04:12:57.906805900 -0600
+@@ -114,7 +114,8 @@ TESTS = tools/JUnitTests tools/ExampleDo
+ lib_LTLIBRARIES = libjava_libglom-@PACKAGE_VERSION@.la
+ 
+ libjava_libglom_@PACKAGE_VERSION@_la_SOURCES = src/glom_wrap.cc
+-libjava_libglom_@PACKAGE_VERSION@_la_LDFLAGS = $(LIBGLOM_LIBS) -release @PACKAGE_VERSION@
++libjava_libglom_@PACKAGE_VERSION@_la_LDFLAGS = -avoid-version -no-undefined
++libjava_libglom_@PACKAGE_VERSION@_la_LIBADD = $(LIBGLOM_LIBS)
+ 
+ # We use -fno-strict-aliasing because SWIG recommends it here:
+ # http://www.swig.org/Doc2.0/Java.html#Java_compiling_dynamic
